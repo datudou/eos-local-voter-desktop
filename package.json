@@ -1,0 +1,22 @@
+{
+  "name": "EOS Local Voter",
+  "description": "Vote for the producers locally",
+  "version": "0.0.1",
+  "main": "main.js",
+  "authors": [
+    "ZhaoYu <zhaoyu.johnny@gmail.com>"
+  ],
+  "license": "GPL-3.0",
+  "private": true,
+  "scripts": {
+    "start": "./node start-electron.js"
+  },
+  "dependencies": {
+    "electron": "^1.8.4",
+    "jquery": "^3.3.1",
+    "keymaster": "^1.6.2",
+    "lodash": "^4.17.10",
+    "request": "^2.85.0",
+    "strip": "^3.0.0"
+  }
+}
