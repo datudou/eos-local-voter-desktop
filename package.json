@@ -9,7 +9,9 @@
   "build": {
     "appId": "com.eoslaomao.voter",
     "productName": "EOS Local Voter",
-    "extraFiles": ["./node"]
+    "extraFiles": [
+      "./node"
+    ]
   },
   "license": "GPL-3.0",
   "private": true,
@@ -28,6 +30,7 @@
   },
   "devDependencies": {
     "electron": "^1.8.4",
-    "electron-builder": "^20.15.1"
+    "electron-builder": "^20.15.1",
+    "gulp": "^3.9.1"
   }
 }
