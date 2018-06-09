@@ -1,18 +1,25 @@
 {
   "name": "eos-local-voter",
   "description": "Vote for the producers locally",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "main.js",
   "authors": [
     "ZhaoYu <zhaoyu.johnny@gmail.com>"
   ],
   "build": {
-    "appId": "com.eoslaomao.voter",
-    "productName": "EOS Local Voter",
-    "extraFiles": [
-      "./node"
-    ]
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "artifactName": "${productName}-setup-${version}.${ext}",
+      "deleteAppDataOnUninstall": true,
+      "oneClick": false,
+      "runAfterFinish": false
+    }
   },
+
   "license": "GPL-3.0",
   "private": true,
   "scripts": {
@@ -30,7 +37,6 @@
   },
   "devDependencies": {
     "electron": "^1.8.4",
-    "electron-builder": "^20.15.1",
-    "gulp": "^3.9.1"
+    "electron-builder": "^20.15.1"
   }
 }
