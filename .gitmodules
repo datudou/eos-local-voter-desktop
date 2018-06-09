@@ -1,0 +1,3 @@
+[submodule "eos-local-voter"]
+	path = eos-local-voter
+	url = https://github.com/EOSLaoMao/eos-local-voter.git
