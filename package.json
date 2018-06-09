@@ -19,7 +19,6 @@
     "dist": "electron-builder"
   },
   "dependencies": {
-    "electron": "^1.8.4",
     "jquery": "^3.3.1",
     "keymaster": "^1.6.2",
     "lodash": "^4.17.10",
@@ -28,6 +27,7 @@
     "strip": "^3.0.0"
   },
   "devDependencies": {
+    "electron": "^1.8.4",
     "electron-builder": "^20.15.1"
   }
 }
