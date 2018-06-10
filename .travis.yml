@@ -33,11 +33,13 @@ script:
       npm run dist
     fi
 
+after_success:
+  - cd ./dist && ls -la && shasum -a 256 eos-local-voter-* >> ./shasums.txt && cat ./shasums.txt && cd ..
+
 before_deploy:
   - git config --local user.name "datudou"
   - git config --local user.email "wangqianyi.cs@gmail.com"
   - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
-  - cd ./dist && ls -la && shasum -a 256 eos-local-voter-* >> ./shasums.txt && cat ./shasums.txt && cd ..
 
 deploy:
   provider: releases
