@@ -19,7 +19,6 @@
       "runAfterFinish": false
     }
   },
-
   "license": "GPL-3.0",
   "private": true,
   "scripts": {
