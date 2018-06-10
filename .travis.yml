@@ -29,9 +29,12 @@ script:
         electronuserland/builder:wine \
         /bin/bash -c "cd eos-local-voter && npm install && cd .. && yarn --link-duplicates --pure-lockfile && yarn dist --linux --win"
     else
-      cd eos-local-voter && npm install && cd ..
+      cd eos-local-voter && npm install && touch config.json && cd ..
       npm run dist
     fi
+
+after_success:
+  - cd ./dist && ls -la && shasum -a 256 eos-local-voter-* >> ./shasums.txt && cat ./shasums.txt && cd ..
 
 before_deploy:
   - git config --local user.name "datudou"
@@ -43,7 +46,9 @@ deploy:
   api_key:
     secure: 1gv03rb3bsqCFS6hdhoRXj8o6EDwWnxkr2R47rQ3C+sIsR8QKAzHlxkFF2gxU0dxJv1E6hlfcoElJ1Q2/pF+Ax4SuggPmNSIXUzgO0pv0vlUhiscqlnm+QraiZDN8yy3p62eW9xcC0+ZFQzDbiGnL83PnDLH2Oo0yE6zp3pYuSTpKjTCC8UQ3h1GcbKeLApc+X8qenqGrPc54N8AzF1ZJTv23mMyj8o7/7tLHIl9gwZJPlgbq31RO4h3vl8/4pT/qJer4WDEIoCQBkU94wsTkNrJftvEBrDVt5lbmpPJhf3zomFSRhTYeBX/5cackMpfBT13HxH4j2agwEHMf0BHQKrizGN/865Z423y/R6OHyt9ynbN/Aypk/s4GBpsGoOQ3K3BB3iHhFTzLxeT2CNN0vW85XXPjQk5ecRCQDUfs5IUJ3I4FLnwDzx63PR/tf/i364LAuaK8DH0G4IpTQUJL/z2WeLi2VmtMfUCUKHoRb9oqHyEnWhuyf37WSpL5H3+oXNVtGTI+Wfj5ZIECf8YVrrmPz4moLOOqmBYg9IWai7YIiuH2You93IhMGUomwukA1rsVC3eefRrOqphEU8zgYPWw+AV/w4MEbgawKjFnUFfsWIi2Oqds/IOeZ16KethXUeqDN4l4FKg4VnNRlIXrLqB1z0On1BhcTUhVAM+xeM=
   file_glob: true
-  file: "./dist/eos-local-voter-*"
+  file:
+    - "./dist/eos-local-voter-*"
+    - "./dist/shasums.txt"
   skip_cleanup: true
   on:
     repo: datudou/eos-local-voter-desktop
