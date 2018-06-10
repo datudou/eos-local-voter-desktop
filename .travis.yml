@@ -27,9 +27,9 @@ script:
         -v ~/.cache/electron:/root/.cache/electron \
         -v ~/.cache/electron-builder:/root/.cache/electron-builder \
         electronuserland/builder:wine \
-        /bin/bash -c "cd eos-local-voter && npm install && cd .. && yarn --link-duplicates --pure-lockfile && yarn dist --linux --win"
+        /bin/bash -c "cd eos-local-voter && npm install && touch config.json && cd .. && yarn --link-duplicates --pure-lockfile && yarn dist --linux --win"
     else
-      cd eos-local-voter && npm install && cd ..
+      cd eos-local-voter && npm install && touch config.json && cd ..
       npm run dist
     fi
 
